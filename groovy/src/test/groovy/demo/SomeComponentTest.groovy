@@ -9,11 +9,16 @@ import spock.lang.Specification
 
 @Category( ComponentTest )
 @Slf4j
-@ContextConfiguration( loader = SpringApplicationContextLoader )
-class DemoApplicationTests extends Specification{
+@ContextConfiguration( classes = Application, loader = SpringApplicationContextLoader )
+class SomeComponentTest extends Specification{
 
     def 'contextLoads'() {
+        given:
+        def foo = true
+
+        expect:
         log.info( 'some component test ran!' )
+        foo
     }
 
 }
