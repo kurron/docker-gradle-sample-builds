@@ -1,0 +1,29 @@
+// bootstrap the Spring Boot plug-in -- must be the first line in the build file
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+// apply the Groovy project pipeline 
+apply from: "/opt/gradle/gradle/groovy/groovy.gradle"
+
+// apply desired dependencies
+apply from: "/opt/gradle/gradle/boot/boot.gradle"
+apply from: "/opt/gradle/gradle/boot/actuator.gradle"
+
+/*
+dependencies {
+    compile("org.codehaus.groovy:groovy")
+    runtime("org.apache.derby:derby")
+    runtime("com.h2database:h2")
+    runtime("org.hsqldb:hsqldb")
+    runtime("mysql:mysql-connector-java")
+    testCompile("org.springframework.boot:spring-boot-starter-test") 
+}
+*/
+
+defaultTasks = ['clean', 'build']
