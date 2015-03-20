@@ -1,16 +1,16 @@
 package demo
 
-import org.junit.Test
-import org.junit.runner.RunWith
-import org.springframework.boot.test.SpringApplicationConfiguration
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+import groovy.util.logging.Slf4j
+import org.junit.experimental.categories.Category
+import org.kurron.categories.ComponentTest
+import spock.lang.Specification
 
-@RunWith(SpringJUnit4ClassRunner)
-@SpringApplicationConfiguration(classes = DemoApplication)
-class DemoApplicationTests {
+@Category( ComponentTest )
+@Slf4j
+class DemoApplicationTests extends Specification{
 
-	@Test
-	void contextLoads() {
-	}
+    def 'contextLoads'() {
+        log.info( 'some component test ran!' )
+    }
 
 }
