@@ -1,6 +1,5 @@
 package demo
 
-import cucumber.api.PendingException
 import cucumber.api.java.After
 import cucumber.api.java.Before
 import cucumber.api.java.en.Given
@@ -14,14 +13,22 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class ExampleSteps {
 
+    class MyWorld {
+        public String someAttribute = "shared";
+    }
+
+    private MyWorld sharedState;
+
     @Before
     void setup() {
         log.debug( 'setup called' )
+        sharedState = new MyWorld()
     }
 
     @After
     void teardown() {
         log.debug( 'teardown called' )
+        sharedState = null
     }
 
     @Given( '^an asset has previously been uploaded$' )
