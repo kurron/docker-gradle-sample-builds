@@ -8,15 +8,16 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@Category(InboundIntegrationTest.class )
-@RunWith( SpringJUnit4ClassRunner.class )
-@SpringApplicationConfiguration( classes = Application.class )
-@WebIntegrationTest( randomPort = true )
-public class SomeInboundIntegrationTest {
-
-	@Test
-	public void contextLoads() {
-        System.out.println( "an inbound integration test ran!" );
-	}
-
+/**
+ * Example inbound gateway integration test.
+ */
+@Category(InboundIntegrationTest.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = Application.class)
+@WebIntegrationTest(randomPort = true)
+public final class SomeInboundIntegrationTest {
+    @Test
+    public void contextLoads() {
+        System.out.println("an inbound integration test ran!");
+    }
 }
