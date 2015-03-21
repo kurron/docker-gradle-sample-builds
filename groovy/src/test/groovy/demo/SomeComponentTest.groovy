@@ -7,10 +7,13 @@ import org.springframework.boot.test.SpringApplicationContextLoader
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+/**
+ * Example of a component test.
+ */
 @Category( ComponentTest )
 @Slf4j
 @ContextConfiguration( classes = Application, loader = SpringApplicationContextLoader )
-class SomeComponentTest extends Specification{
+class SomeComponentTest extends Specification {
 
     def 'contextLoads'() {
         given:

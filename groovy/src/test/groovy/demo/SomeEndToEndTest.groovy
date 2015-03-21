@@ -8,11 +8,14 @@ import org.springframework.boot.test.WebIntegrationTest
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+/**
+ * Example of an end-to-end test.
+ */
 @Category( EndToEndTest )
 @Slf4j
 @ContextConfiguration( classes = Application, loader = SpringApplicationContextLoader )
 @WebIntegrationTest( randomPort = true )
-class SomeEndToEndTest extends Specification{
+class SomeEndToEndTest extends Specification {
 
     def 'contextLoads'() {
         given:

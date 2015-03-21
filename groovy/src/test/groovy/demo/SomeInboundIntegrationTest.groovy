@@ -3,17 +3,19 @@ package demo
 import groovy.util.logging.Slf4j
 import org.junit.experimental.categories.Category
 import org.kurron.categories.InboundIntegrationTest
-import org.kurron.categories.OutboundIntegrationTest
 import org.springframework.boot.test.SpringApplicationContextLoader
 import org.springframework.boot.test.WebIntegrationTest
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+/**
+ * Example of an inbound gateway integration test.
+ */
 @Category( InboundIntegrationTest )
 @Slf4j
 @ContextConfiguration( classes = Application, loader = SpringApplicationContextLoader )
 @WebIntegrationTest( randomPort = true )
-class SomeInboundIntegrationTest extends Specification{
+class SomeInboundIntegrationTest extends Specification {
 
     def 'contextLoads'() {
         given:
