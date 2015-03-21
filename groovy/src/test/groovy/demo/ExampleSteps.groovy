@@ -13,11 +13,11 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class ExampleSteps {
 
-    class MyWorld {
-        public String someAttribute = "shared";
+    static class MyWorld {
+        String someAttribute = 'shared'
     }
 
-    private MyWorld sharedState;
+    MyWorld sharedState
 
     @Before
     void setup() {
@@ -34,6 +34,7 @@ class ExampleSteps {
     @Given( '^an asset has previously been uploaded$' )
     void 'an asset has previously been uploaded'() {
         log.debug( 'an asset has previously been uploaded' )
+        sharedState.someAttribute = 'foo'
     }
 
     @Given( '^an Accept header filled in with the desired media-type of the bits to be downloaded$' )
