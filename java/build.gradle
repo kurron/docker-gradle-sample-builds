@@ -8,8 +8,8 @@ buildscript {
     }
 }
 
-// apply the Groovy project pipeline 
-apply from: "/opt/gradle/gradle/groovy/groovy.gradle"
+// apply the Java project pipeline 
+apply from: "/opt/gradle/gradle/java/java.gradle"
 apply from: "/opt/gradle/gradle/version.gradle"
 
 // apply desired dependencies
@@ -18,19 +18,8 @@ apply from: "/opt/gradle/gradle/boot/actuator.gradle"
 apply from: "/opt/gradle/gradle/boot/web.gradle"
 apply from: "/opt/gradle/gradle/ide/idea.gradle"
 
-group = 'org.kurron.example.groovy'
-description = 'Sample Groovy application used to test out Docker-based Gradle build'
-
-/*
-dependencies {
-    compile("org.codehaus.groovy:groovy")
-    runtime("org.apache.derby:derby")
-    runtime("com.h2database:h2")
-    runtime("org.hsqldb:hsqldb")
-    runtime("mysql:mysql-connector-java")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
-}
-*/
+group = 'org.kurron.example.java'
+description = 'Sample Java application used to test out Docker-based Gradle build'
 
 ext.coverageExcludes = ['demo/Application']
 defaultTasks = ['clean', 'build']
