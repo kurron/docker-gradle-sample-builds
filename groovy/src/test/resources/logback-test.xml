@@ -27,7 +27,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.kurron" level="ALL"/>
+    <logger name="demo" level="ALL"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
