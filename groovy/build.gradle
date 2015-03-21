@@ -21,16 +21,5 @@ apply from: "/opt/gradle/gradle/ide/idea.gradle"
 group = 'org.kurron.example.groovy'
 description = 'Sample Groovy application used to test out Docker-based Gradle build'
 
-/*
-dependencies {
-    compile("org.codehaus.groovy:groovy")
-    runtime("org.apache.derby:derby")
-    runtime("com.h2database:h2")
-    runtime("org.hsqldb:hsqldb")
-    runtime("mysql:mysql-connector-java")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
-}
-*/
-
 ext.coverageExcludes = ['demo/Application']
 defaultTasks = ['clean', 'build']
