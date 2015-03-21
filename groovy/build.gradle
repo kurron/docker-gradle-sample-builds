@@ -10,6 +10,7 @@ buildscript {
 
 // apply the Groovy project pipeline 
 apply from: "/opt/gradle/gradle/groovy/groovy.gradle"
+apply from: "/opt/gradle/gradle/version.gradle"
 
 // apply desired dependencies
 apply from: "/opt/gradle/gradle/boot/boot.gradle"
@@ -17,6 +18,9 @@ apply from: "/opt/gradle/gradle/boot/actuator.gradle"
 apply from: "/opt/gradle/gradle/boot/web.gradle"
 
 apply plugin: 'idea'
+
+group = 'org.kurron.example.groovy'
+description = 'Sample Groovy application used to test out Docker-based Gradle build'
 
 /*
 dependencies {
