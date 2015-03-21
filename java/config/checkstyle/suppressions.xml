@@ -5,4 +5,5 @@
 
 <suppressions>
     <suppress files="Application" checks="[UncommentedMainCheck,HideUtilityClassConstructor]"/>
+    <suppress files="ExampleSteps" checks="[VisibilityModifier]"/>
 </suppressions>

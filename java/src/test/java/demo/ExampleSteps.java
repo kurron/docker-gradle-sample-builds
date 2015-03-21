@@ -1,6 +1,5 @@
 package demo;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -12,48 +11,66 @@ import org.slf4j.LoggerFactory;
 /**
  * Step definitions for the example scenarios.
  */
-public class ExampleSteps {
-    static final Logger log = LoggerFactory.getLogger( ExampleSteps.class );
+public final class ExampleSteps {
+    /**
+     * Message logger to use.
+     */
+    static final Logger LOG = LoggerFactory.getLogger(ExampleSteps.class);
 
-    static class MyWorld {
-        public String someAttribute = "shared";
-    }
-
+    /**
+     * Shared state instance.
+     */
     MyWorld sharedState;
 
     @Before
     void setup() {
-        log.debug( "setup called" );
+        LOG.debug("setup called");
         sharedState = new MyWorld();
     }
 
     @After
     void teardown() {
-        log.debug( "teardown called" );
+        LOG.debug("teardown called");
         sharedState = null;
     }
 
     @Given("^an asset has previously been uploaded$")
-    public void an_asset_has_previously_been_uploaded() throws Throwable {
+    public void anAssetHasPreviouslyBeenUploaded() {
+        LOG.debug("anAssetHasPreviouslyBeenUploaded called");
     }
 
     @Given("^an Accept header filled in with the desired media-type of the bits to be downloaded$")
-    public void an_Accept_header_filled_in_with_the_desired_media_type_of_the_bits_to_be_downloaded() throws Throwable {
+    public void anAcceptHeaderFilledInWithTheDesiredMediaTypeOfTheBitsToBeDownloaded() {
+        LOG.debug("anAcceptHeaderFilledInWithTheDesiredMediaTypeOfTheBitsToBeDownloaded called");
     }
 
     @When("^a GET request is made to the URI$")
-    public void a_GET_request_is_made_to_the_URI() throws Throwable {
+    public void aGETRequestIsMadeToTheURI() {
+        LOG.debug("aGETRequestIsMadeToTheURI called");
     }
 
     @Then("^a response with a (\\d+) HTTP status code is returned$")
-    public void a_response_with_a_HTTP_status_code_is_returned(int arg1) throws Throwable {
+    public void aResponseWithAHttpStatusCodeIsReturned(final int status) {
+        LOG.debug("aResponseWithAHTTPStatusCodeIsReturned called with a ode of {}", status);
     }
 
     @Then("^the Content-Type header matches the Accept header$")
-    public void the_Content_Type_header_matches_the_Accept_header() throws Throwable {
+    public void theContentTypeHeaderMatchesTheAcceptHeader() {
+        LOG.debug("theContentTypeHeaderMatchesTheAcceptHeader called");
     }
 
     @Then("^the body contains the asset$")
-    public void the_body_contains_the_asset() throws Throwable {
+    public void theBodyContainsTheAsset() {
+        LOG.debug("theBodyContainsTheAsset called");
+    }
+
+    /**
+     * Shared state between steps.
+     */
+    static class MyWorld {
+        /**
+         * Some state to share.
+         */
+        public String someAttribute = "shared";
     }
 }
