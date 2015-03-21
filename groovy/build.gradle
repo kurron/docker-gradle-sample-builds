@@ -33,4 +33,5 @@ dependencies {
 }
 */
 
+ext.coverageExcludes = ['demo/Application']
 defaultTasks = ['clean', 'build']
