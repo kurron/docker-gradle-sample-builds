@@ -8,11 +8,23 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.0"
+}
+
 // apply the Java project pipeline 
 apply from: "/opt/gradle/gradle/java/java.gradle"
 apply from: "/opt/gradle/gradle/version.gradle"
 
-// apply desired dependencies
+// it is important to define these BEFORE the publishing logic or the artifact won't get a description
+group = 'org.kurron.example.java'
+description = 'Sample Java application used to test out Docker-based Gradle build'
+
+// apply the Java artifact publishing pipeline
+apply from: "/opt/gradle/gradle/java/maven-publish.gradle"
+apply from: "/opt/gradle/gradle/publishing/bintray.gradle"
+
+// apply IDE support tasks 
 apply from: "/opt/gradle/gradle/ide/idea.gradle"
 apply from: "/opt/gradle/gradle/ide/eclipse.gradle"
 
@@ -67,9 +79,6 @@ apply from: "/opt/gradle/gradle/boot/web.gradle"
 //apply from: "/opt/gradle/gradle/cloud/ribbon.gradle"
 //apply from: "/opt/gradle/gradle/cloud/turbine-amqp.gradle"
 //apply from: "/opt/gradle/gradle/cloud/zuul.gradle"
-
-group = 'org.kurron.example.java'
-description = 'Sample Java application used to test out Docker-based Gradle build'
 
 ext.coverageExcludes = ['demo/Application']
 defaultTasks = ['clean', 'build']
