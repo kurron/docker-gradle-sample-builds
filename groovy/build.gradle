@@ -8,18 +8,27 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.0"
+}
+
 // apply the Groovy project pipeline 
 apply from: "/opt/gradle/gradle/groovy/groovy.gradle"
 apply from: "/opt/gradle/gradle/version.gradle"
+
+// It is important to specify these BEFORE setting up publishing or the description doesn't get used properly
+group = 'org.kurron.example.groovy'
+description = 'Sample Groovy application used to test out Docker-based Gradle build'
+
+// apply the Java artifact publishing pipeline
+apply from: "/opt/gradle/gradle/java/maven-publish.gradle"
+apply from: "/opt/gradle/gradle/publishing/bintray.gradle"
 
 // apply desired dependencies
 apply from: "/opt/gradle/gradle/boot/boot.gradle"
 apply from: "/opt/gradle/gradle/boot/actuator.gradle"
 apply from: "/opt/gradle/gradle/boot/web.gradle"
 apply from: "/opt/gradle/gradle/ide/idea.gradle"
-
-group = 'org.kurron.example.groovy'
-description = 'Sample Groovy application used to test out Docker-based Gradle build'
 
 ext.coverageExcludes = ['demo/Application']
 defaultTasks = ['clean', 'build']
